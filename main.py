@@ -203,11 +203,18 @@ def subnetCalc():
         
         # checher to be deleted later
         print(f"""
-              your ip address is {ip_add} and bit to borrow is  {bitBorrow} and binary ip is: {ip_binary} and it is {ipClass} and 
-              lastly {hostnetwork} and also slashvalue is {slashvalue} with subnetmask of {subnetmask} & Binary Subnet is
-              {subnetmaskBin}
-              your network id is {networkId}  and  wild card is {wildcard} also available IP addresses for each subnet is  {hostIp}
-                and the broadcastId is {broadcastId}
+                You Entered:  {ip_add}
+                Your Network Id is {networkId}
+                Your Ip Binary is: {ip_binary}
+                Your Ip Class is: {ipClass}
+                The Ip Class Binar is: {hostnetwork}
+                The Number of bit to borrow is: {bitBorrow}
+                The Slash Value is: {slashvalue}
+                The subnetmask is: {subnetmask}
+                The wildcard is: {wildcard}
+                The Number of available Host IP addresses is {hostIp}
+                The Broadcast Id is: {broadcastId}
+                
               """)
         
 if __name__ == '__main__':
