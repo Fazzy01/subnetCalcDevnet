@@ -166,6 +166,16 @@ def broadcastIdCalc(ipadd, bitBorrow):
     broadcastIpAdd = ".".join(str(k) for k in split_ip) ; #using join to convert back to ip address
     return broadcastIpAdd
 
+#function to calculate the block size
+def calculateBlockSize(ipadd, borrowedBit):
+    borrowedBit = int(borrowedBit)
+    checkHostNetwork = numberOfNetworkandHostClass(ipadd)
+    numberofNetwork = checkHostNetwork.count('1') 
+    slashValue = numberofNetwork + borrowedBit
+    substraction = int(32 -slashValue) #substract the slash value from the 32(size of the bits)
+    blockSize = 2**substraction
+    return blockSize
+
 # ________________________________________________________________________________________________
 # MAIN FUNCTION 192.168.40.0
 # ________________________________________________________________________________________________
@@ -200,6 +210,8 @@ def subnetCalc():
         hostIp = hostIpCalc(ip_add, bitBorrow)
         # calculate the broadcast Id 
         broadcastId = broadcastIdCalc(ip_add, bitBorrow)
+        # calculate the block size
+        blockSize = calculateBlockSize(ip_add, bitBorrow)
         
         # checher to be deleted later
         print(f"""
@@ -214,6 +226,7 @@ def subnetCalc():
                 The wildcard is: {wildcard}
                 The Number of available Host IP addresses is {hostIp}
                 The Broadcast Id is: {broadcastId}
+                The Block size is: {blockSize}
                 
               """)
         
